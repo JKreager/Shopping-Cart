@@ -9,7 +9,7 @@ const products = [
 const Cart = (props) => {
   const { Card, Accordion, Button } = ReactBootstrap;
   let data = props.location.data ? props.location.data : products;
-  console.log(`data:${JSON.stringify(data)}`);
+  console.log(`data:${JSON.stringify(data)}`
 
   return <Accordion defaultActiveKey="0">{list}</Accordion>;
 };
@@ -159,36 +159,4 @@ const Products = (props) => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>Product List</h1>
-          <ul style={{ listStyleType: 'none' }}>{list}</ul>
-        </Col>
-        <Col>
-          <h1>Cart Contents</h1>
-          <Accordion defaultActiveKey="0">{cartList}</Accordion>
-        </Col>
-        <Col>
-          <h1>CheckOut </h1>
-          <Button onClick={checkOut}>CheckOut $ {finalList().total}</Button>
-          <div> {finalList().total > 0 && finalList().final} </div>
-        </Col>
-      </Row>
-      <Row>
-        <form
-          onSubmit={(event) => {
-            restockProducts(`http://localhost:1337/${query}`);
-            console.log(`Restock called on ${query}`);
-            event.preventDefault();
-          }}
-        >
-          <input type="text" value={query} onChange={(event) => setQuery(event.target.value)} />
-          <button type="submit">ReStock Products</button>
-        </form>
-      </Row>
-    </Container>
-  );
-};
-// ========================================
-ReactDOM.render(<Products />, document.getElementById('root'));
+
